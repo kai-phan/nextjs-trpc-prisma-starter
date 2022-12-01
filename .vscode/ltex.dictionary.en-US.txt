@@ -1,0 +1,5 @@
+Prisma
+tRPC
+SonarCloud
+io
+NEXTAUTH

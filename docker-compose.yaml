@@ -1,0 +1,84 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: ${APP_NAME}-app
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: "linux/amd64"
+    volumes:
+      - app:/data
+    networks:
+      - internal
+    depends_on:
+      - postgres
+
+  # Primary database
+  postgres:
+    container_name: ${APP_NAME}-postgres
+    restart: always
+    image: postgres:14
+    env_file:
+      - .env
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - internal
+
+  # Backups for the database
+  postgres-backup:
+    container_name: ${APP_NAME}-postgres-backup
+    restart: always
+    image: prodrigestivill/postgres-backup-local
+    env_file:
+      - .env
+    volumes:
+      - backups:/var/lib/postgresql/data
+    networks:
+      - internal
+    depends_on:
+      - postgres
+
+  # pgAdmin @ http://localhost/browser/
+  # pgadmin:
+  # container_name: ${APP_NAME}-pgAdmin
+  #   image: dpage/pgadmin4
+  #   ports:
+  #     - "80:80"
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+  #     PGADMIN_DEFAULT_PASSWORD: "admin"
+  #   depends_on:
+  #     - postgres
+
+  # redis:
+  #   container_name: ${APP_NAME}-redis
+  #   restart: always
+  #   image: redis:alpine3.16
+  #   expose:
+  #     - ${REDIS_PORT}
+  #   command: redis-server --include /usr/local/etc/redis/redis.conf --appendonly yes
+  #   volumes:
+  #     - redis-data:/data
+  #     - redis-conf:/usr/local/etc/redis/redis.conf
+  #   networks:
+  #     - internal
+
+networks:
+  internal:
+    driver: bridge
+
+volumes:
+  app:
+  postgres:
+  backups:
+  redis-data:
+  redis-conf:
