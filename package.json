@@ -114,7 +114,7 @@
 		"@typescript-eslint/parser": "^5.42.1",
 		"eslint": "8.28.0",
 		"eslint-config-airbnb-typescript": "^17.0.0",
-		"eslint-config-hardcore": "25.1.0",
+		"eslint-config-hardcore": "25.2.0",
 		"eslint-config-next": "12.3.4",
 		"eslint-config-prettier": "8.5.0",
 		"eslint-config-sznm": "1.0.1",
