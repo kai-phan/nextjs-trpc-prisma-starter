@@ -68,7 +68,7 @@
 		"babel-plugin-superjson-next": "0.4.5",
 		"chakra-ui-steps": "^1.8.0",
 		"clsx": "1.2.1",
-		"framer-motion": "7.6.12",
+		"framer-motion": "7.6.15",
 		"katex": "0.16.3",
 		"mermaid": "9.2.2",
 		"next": "12.3.4",
