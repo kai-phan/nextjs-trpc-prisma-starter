@@ -112,7 +112,7 @@
 		"@types/ws": "8.5.3",
 		"@typescript-eslint/eslint-plugin": "^5.41.0",
 		"@typescript-eslint/parser": "^5.42.1",
-		"eslint": "8.28.0",
+		"eslint": "8.29.0",
 		"eslint-config-airbnb-typescript": "^17.0.0",
 		"eslint-config-hardcore": "25.2.0",
 		"eslint-config-next": "12.3.4",
