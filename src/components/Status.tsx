@@ -1,18 +1,17 @@
-import React from "react";
-
-import { Center, Tooltip, keyframes } from "@chakra-ui/react";
+import { Center, Tooltip, keyframes } from '@chakra-ui/react';
+import React from 'react';
 
 interface Props {
-	active: boolean;
+  active: boolean;
 }
 
 export const StatusIndicator = ({ active }: Props) => {
-	const activeColor = "green.500";
-	const inactiveColor = "gray.400";
-	const ringScaleMin = 0.33;
-	const ringScaleMax = 0.66;
+  const activeColor = 'green.500';
+  const inactiveColor = 'gray.400';
+  const ringScaleMin = 0.33;
+  const ringScaleMax = 0.66;
 
-	const pulseRing = keyframes`
+  const pulseRing = keyframes`
 	0% {
     transform: scale(${ringScaleMin});
   }
@@ -28,7 +27,7 @@ export const StatusIndicator = ({ active }: Props) => {
   }
 	`;
 
-	const pulseDot = keyframes`
+  const pulseDot = keyframes`
 	0% {
     transform: scale(0.9);
   }
@@ -43,31 +42,31 @@ export const StatusIndicator = ({ active }: Props) => {
   }
 	`;
 
-	return active ? (
-		<Tooltip label="API Status: Active" textTransform="capitalize">
-			<Center
-				h="1em"
-				w="1em"
-				mx={1}
-				bgColor={activeColor}
-				borderRadius="50%"
-				_before={{
-					bgColor: activeColor,
-					animation: `2.25s ${pulseRing} cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite`,
-				}}
-				_after={{
-					animation: `2.25s ${pulseDot} cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite`,
-				}}
-			></Center>
-		</Tooltip>
-	) : (
-		<Tooltip label="API Status: Inactive" textTransform="capitalize">
-			<Center
-				h="1em"
-				w="1em"
-				bgColor={inactiveColor}
-				borderRadius="50%"
-			></Center>
-		</Tooltip>
-	);
+  return active ? (
+    <Tooltip label="API Status: Active" textTransform="capitalize">
+      <Center
+        h="1em"
+        w="1em"
+        mx={1}
+        bgColor={activeColor}
+        borderRadius="50%"
+        _before={{
+          bgColor: activeColor,
+          animation: `2.25s ${pulseRing} cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite`,
+        }}
+        _after={{
+          animation: `2.25s ${pulseDot} cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite`,
+        }}
+      ></Center>
+    </Tooltip>
+  ) : (
+    <Tooltip label="API Status: Inactive" textTransform="capitalize">
+      <Center
+        h="1em"
+        w="1em"
+        bgColor={inactiveColor}
+        borderRadius="50%"
+      ></Center>
+    </Tooltip>
+  );
 };

@@ -1,1 +1,1 @@
-declare module "next-remove-imports";
+declare module 'next-remove-imports';

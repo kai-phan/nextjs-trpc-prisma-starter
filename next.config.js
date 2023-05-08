@@ -1,7 +1,7 @@
 // @ts-check
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { env } = require("./src/server/env");
-const removeImports = require("next-remove-imports")();
+const { env } = require('./src/server/env');
+const removeImports = require('next-remove-imports')();
 
 /**
  * Don't be scared of the generics here.
@@ -12,7 +12,7 @@ const removeImports = require("next-remove-imports")();
  * @constraint {{import('next').NextConfig}}
  */
 function getConfig(config) {
-	return config;
+  return config;
 }
 
 /**
@@ -24,16 +24,16 @@ function getConfig(config) {
  *
  */
 module.exports = removeImports(
-	getConfig({
-		/**
-		 * Dynamic configuration available for the browser and server.
-		 * Note: requires `ssr: true` or a `getInitialProps` in `_app.tsx`
-		 * @link https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration
-		 */
-		publicRuntimeConfig: {
-			NODE_ENV: env.NODE_ENV,
-		},
-		// Docker config requires standalone build
-		output: "standalone",
-	})
+  getConfig({
+    /**
+     * Dynamic configuration available for the browser and server.
+     * Note: requires `ssr: true` or a `getInitialProps` in `_app.tsx`
+     * @link https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration
+     */
+    publicRuntimeConfig: {
+      NODE_ENV: env.NODE_ENV,
+    },
+    // Docker config requires standalone build
+    output: 'standalone',
+  }),
 );

@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 
 services:
   app:
@@ -11,7 +11,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    platform: "linux/amd64"
+    platform: 'linux/amd64'
     volumes:
       - app:/data
     networks:

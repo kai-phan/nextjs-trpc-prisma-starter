@@ -1,1 +1,1 @@
-declare module "crypto-balances-2";
+declare module 'crypto-balances-2';

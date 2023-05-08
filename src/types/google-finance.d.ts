@@ -1,1 +1,1 @@
-declare module "google-finance";
+declare module 'google-finance';

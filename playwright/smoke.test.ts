@@ -1,4 +1,4 @@
-import { test } from "@playwright/test";
+import { test } from '@playwright/test';
 
 test.setTimeout(35e3);
 
@@ -13,24 +13,24 @@ test.setTimeout(35e3);
 //   expect(res?.status()).toBe(404);
 // });
 
-test("Sign in", async ({ page, browser }) => {
-	const viewer = await browser.newPage();
-	await viewer.goto("http://localhost:3000");
+test('Sign in', async ({ page, browser }) => {
+  const viewer = await browser.newPage();
+  await viewer.goto('http://localhost:3000');
 
-	await page.goto("http://localhost:3000/api/auth/signin");
-	await page.type('[name="name"]', "test");
-	await page.click('[type="submit"]');
+  await page.goto('http://localhost:3000/api/auth/signin');
+  await page.type('[name="name"]', 'test');
+  await page.click('[type="submit"]');
 
-	// const nonce = uuid();
+  // const nonce = uuid();
 
-	await viewer.goto("http://localhost:3000/posts");
+  await viewer.goto('http://localhost:3000/posts');
 
-	// await page.click('[type=submit]');
-	// await page.type('[name=text]', nonce);
-	// await page.click('[type=submit]');
+  // await page.click('[type=submit]');
+  // await page.type('[name=text]', nonce);
+  // await page.click('[type=submit]');
 
-	// await viewer.waitForSelector(`text=${nonce}`);
-	viewer.close();
+  // await viewer.waitForSelector(`text=${nonce}`);
+  viewer.close();
 });
 
 // test('add a post', async ({ page, browser }) => {
